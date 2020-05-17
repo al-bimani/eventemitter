@@ -5,6 +5,7 @@
 
 basic usage
 ```nim
+import eventemitter
 type ReadyArgs = ref object of Args
     text: string
 var evts = createEventEmitter()
