@@ -4,7 +4,7 @@ type
   Event = tuple[name:string, handlers:seq[Handler]] # key value pair
   EventEmitter = ref object
     events: seq[Event] # will use sequence as fixed size array
-proc createEventEmitter(): EventEmitter = 
+proc createEventEmitter*(): EventEmitter = 
   result.new
   result.events = @[]
 method on*(this: EventEmitter, name: string, handler: Handler): void {.base.} = 
