@@ -1,8 +1,8 @@
 type 
   Args* = ref object of RootObj # ...args
-  Handler = proc (args: Args) {.closure.} # callback function type
-  Event = tuple[name:string, handlers:seq[Handler]] # key value pair
-  EventEmitter = ref object
+  Handler* = proc (args: Args) {.closure.} # callback function type
+  Event* = tuple[name:string, handlers:seq[Handler]] # key value pair
+  EventEmitter* = ref object
     events: seq[Event] # will use sequence as fixed size array
 proc createEventEmitter*(): EventEmitter = 
   result.new

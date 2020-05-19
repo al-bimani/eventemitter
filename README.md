@@ -25,10 +25,9 @@ evts.emit("ready", ReadyArgs(text:"Hello, World"))
 ## types
 
 ```nim
-type 
-  Args* = ref object of RootObj
-  Handler = proc (args: Args) {.closure.}
-  Event = tuple[name:string, handlers:seq[Handler]]
-  EventEmitter = ref object
-    events: seq[Event]
+type Args* = ref object of RootObj  
+type Handler* = proc (args: Args) {.closure.}  
+type Event* = tuple[name:string, handlers:seq[Handler]]  
+type EventEmitter* = ref object  
+    events: seq[Event]  
 ```
